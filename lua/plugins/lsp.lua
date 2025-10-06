@@ -4,13 +4,13 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+		-- local vue_pkg_path =
+		-- 	vim.fs.joinpath(mason_packages, "vue-language-server", "node_modules", "@vue", "language-server")
+		local vue_language_server_path = vim.fn.stdpath("data")
+			.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
-		local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-		local vue_pkg_path =
-			vim.fs.joinpath(mason_packages, "vue-language-server", "node_modules", "@vue", "language-server")
-
-        lspconfig.vtsls.setup({
+		vim.lsp.config("vtsls", {
 			filetypes = { "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			capabilities = capabilities,
 			settings = {
@@ -24,7 +24,7 @@ return {
 						globalPlugins = {
 							{
 								name = "@vue/typescript-plugin",
-								location = vue_pkg_path,
+								location = vue_language_server_path,
 								languages = { "vue" },
 								configNamespace = "typescript",
 								enableForWorkspaceTypeScriptVersions = true,
@@ -35,25 +35,39 @@ return {
 			},
 		})
 
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			filetypes = { "css", "scss", "sass" },
 			capabilities = capabilities,
 		})
-		lspconfig.cssmodules_ls.setup({
+
+		vim.lsp.config("cssmodules_ls", {
 			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			capabilities = capabilities,
 		})
-		lspconfig.css_variables.setup({
+
+		vim.lsp.config("css_variables", {
 			filetypes = { "css", "scss", "less" },
 			capabilities = capabilities,
 		})
-		lspconfig.somesass_ls.setup({
+
+		vim.lsp.config("somesass_ls", {
 			filetypes = { "scss", "less", "vue" },
 			capabilities = capabilities,
 		})
-		lspconfig.emmet_language_server.setup({
+
+		vim.lsp.config("emmet_language_server", {
 			filetypes = { "typescriptreact", "html", "vue" },
 			capabilities = capabilities,
+		})
+
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
 		})
 	end,
 }
