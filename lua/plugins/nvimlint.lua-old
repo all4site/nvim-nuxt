@@ -3,11 +3,11 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("lint").linters_by_ft = {
-			javascript = { "biomejs" },
-			typescript = { "biomejs" },
-			javascriptreact = { "biomejs" },
-			typescriptreact = { "biomejs" },
-			vue = { "biomejs" },
+			javascript = { "eslint" },
+			typescript = { "eslint" },
+			javascriptreact = { "eslint" },
+			typescriptreact = { "eslint" },
+			vue = { "eslint" },
 		}
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
@@ -16,8 +16,8 @@ return {
 		})
 		-- vim.api.nvim_create_autocmd("BufWritePre", {
 		-- 	callback = function()
-		-- 		-- Проверяем, что biomejs доступен
-		-- 		if vim.fn.executable("biomejs") == 1 then
+		-- 		-- Проверяем, что eslint доступен
+		-- 		if vim.fn.executable("eslint") == 1 then
 		-- 			vim.cmd("EslintFix")
 		-- 		end
 		-- 	end,

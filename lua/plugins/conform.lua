@@ -9,11 +9,6 @@ return {
 				shfmt = {
 					prepend_args = { "-i", "2", "-ci" }, -- 2 пробела и авто-отступ для case/esac
 				},
-				biome = {
-					command = "biome",
-					args = { "check", "--write", "$FILENAME" },
-					stdin = false, -- biome работает с файлом напрямую, а не через stdin
-				},
 			},
 
 			format_on_save = {
@@ -24,11 +19,11 @@ return {
 			notify_on_error = true,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				json = { "biome" },
-				vue = { "biome", "stylelint" },
-				javascript = { "biome" },
-				typescript = { "biome" },
-				html = { "biome" },
+				json = { "prettier" },
+				vue = { "prettier", "stylelint" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				html = { "prettier" },
 				css = { "stylelint" },
 				scss = { "stylelint" },
 				yaml = { "prettier" },

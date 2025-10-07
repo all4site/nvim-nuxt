@@ -20,6 +20,7 @@ return {
 					"css_variables",
 					"somesass_ls",
 					"vue_ls",
+					"eslint",
 				},
 			})
 		end,
@@ -29,7 +30,7 @@ return {
 		config = function()
 			require("mason-conform").setup({
 				automatic_installation = true,
-				ensure_installed = { "prettierd", "stylua", "stylelint", "biome" },
+				ensure_installed = { "prettierd", "stylua", "stylelint" },
 			})
 		end,
 	},
@@ -38,7 +39,7 @@ return {
 	-- 	config = function()
 	-- 		require("mason-nvim-lint").setup({
 	-- 			automatic_installation = true,
-	-- 			ensure_installed = { "eslint_d" },
+	-- 			ensure_installed = { "eslint-lsp" },
 	-- 		})
 	-- 	end,
 	-- },
