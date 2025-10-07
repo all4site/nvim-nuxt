@@ -4,9 +4,6 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
-		-- local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-		-- local vue_pkg_path =
-		-- 	vim.fs.joinpath(mason_packages, "vue-language-server", "node_modules", "@vue", "language-server")
 		local vue_language_server_path = vim.fn.stdpath("data")
 			.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
@@ -15,7 +12,6 @@ return {
 			capabilities = capabilities,
 			settings = {
 				vtsls = {
-					-- autoUseWorkspaceTsdk = true,
 					tsserver = {
 						preferences = {
 							importModuleSpecifier = "non-relative",
@@ -41,7 +37,7 @@ return {
 		})
 
 		vim.lsp.config("cssmodules_ls", {
-			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+			filetypes = { "javascriptreact", "typescriptreact" },
 			capabilities = capabilities,
 		})
 

@@ -8,6 +8,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			-- "hrsh7th/vim-vsnip",
 
 			"dcampos/nvim-snippy",
@@ -33,8 +34,8 @@ return {
 							Constructor = "",
 							Field = "󰜢",
 							Variable = "󰀫",
-							Class = "󰠱",
 							Interface = "",
+							Class = "󰠱",
 							Module = "",
 							Property = "󰜢",
 							Unit = "󰑭",
@@ -98,11 +99,10 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
 					{ name = "snippy" },
-					{ name = "nvim_lsp" }, -- For vsnip users.
-				}, {
-					{ name = "buffer" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "buffer" },
 				}),
 
 				performance = {
