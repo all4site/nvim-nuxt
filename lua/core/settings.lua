@@ -70,5 +70,3 @@ augroup end
 vim.api.nvim_create_autocmd("VimEnter", { command = "Neotree toggle" })
 vim.diagnostic.config({ virtual_text = false })
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
-

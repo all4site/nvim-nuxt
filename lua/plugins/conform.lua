@@ -1,5 +1,6 @@
 return {
 	"stevearc/conform.nvim",
+	enabled = false,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
@@ -19,15 +20,15 @@ return {
 			notify_on_error = true,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				json = { "prettier" },
-				vue = { "prettier", "stylelint" },
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				html = { "prettier" },
+				json = { "eslint" },
+				vue = { "stylelint" },
+				javascript = { "eslint" },
+				typescript = { "eslint" },
+				html = { "eslint" },
 				css = { "stylelint" },
 				scss = { "stylelint" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
+				yaml = { "eslint" },
+				markdown = { "eslint" },
 			},
 		})
 	end,

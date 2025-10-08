@@ -79,5 +79,15 @@ return {
 				})
 			end,
 		})
+
+		vim.lsp.config("stylelint_lsp", {
+			settings = {
+				stylelintplus = {
+					autoFixOnFormat = true,
+					autoFixOnSave = true,
+					validateOnType = true,
+				},
+			},
+		})
 	end,
 }

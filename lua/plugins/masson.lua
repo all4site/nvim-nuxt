@@ -21,26 +21,10 @@ return {
 					"somesass_ls",
 					"vue_ls",
 					"eslint",
+					"stylelint_lsp",
+					"stylua",
 				},
 			})
 		end,
 	},
-	{
-		"zapling/mason-conform.nvim",
-		config = function()
-			require("mason-conform").setup({
-				automatic_installation = true,
-				ensure_installed = { "prettierd", "stylua", "stylelint" },
-			})
-		end,
-	},
-	-- {
-	-- 	"rshkarin/mason-nvim-lint",
-	-- 	config = function()
-	-- 		require("mason-nvim-lint").setup({
-	-- 			automatic_installation = true,
-	-- 			ensure_installed = { "eslint-lsp" },
-	-- 		})
-	-- 	end,
-	-- },
 }
